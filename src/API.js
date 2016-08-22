@@ -21,8 +21,12 @@ const API = {
   getResult(company) {
     axios.post('/api/markets/info', company)
       .then(res => res.data)
-      .then(ServerActions.receiveTodos)
+      .then(ServerActions.receiveInfo)
       .catch(console.error);
+  },
+
+  getDetails(symbol) {
+    console.log('nothing is here testing routes')
   }
 }
 export default API;

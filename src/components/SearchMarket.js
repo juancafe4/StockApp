@@ -1,5 +1,6 @@
 import React from 'react';
 import jsonp from 'jsonp'
+import MarketActions from '../actions/MarketActions'
 class SearchMarket extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +19,8 @@ class SearchMarket extends React.Component {
 
     submit(e) {
       if(this.state.company) {
-        this.setState({company: ''})
+        let obj = {conpany : this.state.company}
+        MarketActions.getInfo(obj)
       }
     }
     render() {
