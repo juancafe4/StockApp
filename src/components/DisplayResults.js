@@ -8,11 +8,9 @@ class DisplayInfo extends React.Component {
     super(props);
 
     this.state = {
-      info: []
+      details: []
     }
     this._onChange = this._onChange.bind(this);
-    this.moreInfo = this.moreInfo.bind(this);
-
   }
 
   componentDidMount() {
@@ -24,24 +22,20 @@ class DisplayInfo extends React.Component {
   }
   _onChange() {
     this.setState({
-      info: StoreMarket.getInfo()
+      details: StoreMarket.getDetails()
     });
   }
-  moreInfo() {
-    MarketActions.receiveDetails({symbol: this.state.info.Symbol})
-  }
   render() {
-
-    if (this.state.info.length) {
-      let trs;
+    console.log('details ', this.state.details)
+    if (!this.state.details.length) {
       return (
-        <table className='table'
-        
-       </table>
+        <div> 
+          It works
+        </div>
       )
     }
     return <div>DisplayInfo</div>;
   }
 }
 
-export default DisplayInfo;
+export default DisplayInfo; 

@@ -19,7 +19,7 @@ class SearchMarket extends React.Component {
 
     submit(e) {
       if(this.state.company) {
-        let obj = {conpany : this.state.company}
+        let obj = {company : this.state.company}
         MarketActions.getInfo(obj)
       }
     }

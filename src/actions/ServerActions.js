@@ -7,6 +7,12 @@ const ServerActions = {
       info
     })
   },
+  receiveDetails(detail) {
+    AppDispatcher.dispatch({
+      type: 'RECEIVE_DETAILS',
+      details
+    })
+  },
 }
 
 export default ServerActions
