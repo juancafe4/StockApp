@@ -33,10 +33,30 @@ class DisplayInfo extends React.Component {
   render() {
 
     if (this.state.info.length) {
-      let trs;
+      let trs =  this.state.info.map((val, index) => {
+        return (
+          <tr key={index + 1}>
+            <td>{val.Exchange}</td>
+            <td>{val.Name}</td>
+            <td>{val.Symbol}</td>
+            <td><button>More Info</button></td>
+          </tr>
+        )
+      });
       return (
-        <table className='table'
-        
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>Exchange</th>
+              <th>Name</th>
+              <th>Symbol</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {trs}
+          </tbody>
        </table>
       )
     }
