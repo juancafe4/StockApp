@@ -2,7 +2,7 @@ import React from 'react';
 
 import StoreMarket from '../stores/StoreMarket'
 import MarketActions from '../actions/MarketActions'
-
+import {Link} from 'react-router'
 class DisplayInfo extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ class DisplayInfo extends React.Component {
   }
   _onChange() {
     this.setState({
-      info: StoreMarket.getInfo()
+     info: StoreMarket.getInfo()
     });
   }
   moreInfo() {
@@ -34,12 +34,13 @@ class DisplayInfo extends React.Component {
 
     if (this.state.info.length) {
       let trs =  this.state.info.map((val, index) => {
+        let path = '/' + val.Symbol
         return (
           <tr key={index + 1}>
             <td>{val.Exchange}</td>
             <td>{val.Name}</td>
             <td>{val.Symbol}</td>
-            <td><button>More Info</button></td>
+            <td><Link to={path}> More Info</Link></td>
           </tr>
         )
       });

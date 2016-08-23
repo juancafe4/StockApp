@@ -4,8 +4,12 @@ const MarketActions = {
   getInfo(company) {
     API.getResult(company)
   },
-  getDetails(symbol) {
+  getDetails(symbol){
     API.getDetails(symbol)
+  },
+  getData(symbol) { 
+    console.log('actions')
+    API.getChartValues(symbol);
   }
 }
 

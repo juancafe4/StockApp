@@ -6,8 +6,6 @@ const API = {
   getResult(company) {
     axios.post('/api/markets/info', company)
       .then(res =>  {
-        console.log('company ', company)
-        console.log('API ', res.data)
         return res.data
       })
       .then(ServerActions.receiveInfo)
@@ -16,8 +14,19 @@ const API = {
 
   getDetails(symbol) {
     axios.post('/api/markets/details', symbol)
-      .then(res => res.data)
+      .then(res => {
+        return res.data
+      })
       .then(ServerActions.receiveDetails)
+      .catch(console.error);
+  },
+
+  getChartValues(symbol) {
+    axios.post('/api/markets/charts', symbol)
+      .then(res => {
+        return res.data
+      })
+      .then(ServerActions.getChartValues)
       .catch(console.error);
   }
 }

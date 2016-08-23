@@ -7,12 +7,18 @@ const ServerActions = {
       info
     })
   },
-  receiveDetails(detail) {
+  receiveDetails(details) {
     AppDispatcher.dispatch({
-      type: 'RECEIVE_DETAILS',
+      type: 'RECIEVE_DETAILS',
       details
     })
   },
+  getChartValues(data) {
+    AppDispatcher.dispatch({
+    type: 'RECIEVE_DATA',
+    data
+  })
+  }
 }
 
 export default ServerActions
